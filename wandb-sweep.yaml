@@ -1,0 +1,58 @@
+method: random
+metric:
+  goal: minimize
+  name: Step
+parameters:
+  batch-size:
+    distribution: categorical
+    values:
+      - 128
+      - 64
+      - 32
+  bbox_interval:
+    distribution: categorical
+    values:
+      - 1
+  cfg:
+    distribution: categorical
+    values:
+      - cfg/training/yolov7-tiny.yaml
+  data:
+    distribution: categorical
+    values:
+      - ../artifacts/Donovan-Kenan-Rae:v0/data.yaml
+  device:
+    distribution: categorical
+    values:
+      - "0"
+  epochs:
+    distribution: categorical
+    values:
+      - 10
+  hyp:
+    distribution: categorical
+    values:
+      - data/hyp.scratch.tiny.yaml
+  img-size:
+    distribution: categorical
+    values:
+      - 128
+      - 64
+      - 32
+  name:
+    distribution: categorical
+    values:
+      - sweep
+  project:
+    distribution: categorical
+    values:
+      - yolo-wandb-demo
+  save_period:
+    distribution: categorical
+    values:
+      - 1
+  weights:
+    distribution: categorical
+    values:
+      - yolov7-tiny.pt
+program: train.py
